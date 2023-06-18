@@ -19,5 +19,31 @@
  * - Puedes utilizar las palabras que quieras y el número de intentos que consideres
  */
 '''
+import random as r
+
+def palabra_aleatoria() -> str:
+    palabras = ("hola", "adios", "gracias","prueba", "juego","avion","ruta","coche")
+    numero = r.randint(0,len(palabras)-1)
+    print (numero)
+    return (palabras[numero])
 
 
+def slice (palabra:str) -> str:
+    final =""
+    print (len(palabra))
+    for letra in range(0,len(palabra)):
+        if letra % 2 != 0:
+            final += "_"
+        else:
+            final += palabra[letra]
+    return final
+     
+
+def adivina () -> bool:
+    aleatoria = palabra_aleatoria()
+    print (slice(aleatoria))
+    adivina = input ("Introduce palabra a adivinar:")
+    return adivina == aleatoria
+    
+
+print (adivina())
